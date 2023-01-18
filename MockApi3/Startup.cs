@@ -28,7 +28,7 @@ namespace MockApi3
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<DNIContext>(opt => opt.UseInMemoryDatabase("DNIDatabase"));
-            services.AddControllers();
+            services.AddControllers().AddXmlSerializerFormatters();
             services.AddSwaggerGen();
         }
 
