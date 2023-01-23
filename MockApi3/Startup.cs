@@ -7,6 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using MockApi3.Middlewares;
 using MockApi3.Models;
 using System;
 using System.Collections.Generic;
@@ -47,10 +48,9 @@ namespace MockApi3
             app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
-
             app.UseRouting();
-
             app.UseAuthorization();
+            app.UseRequestResponseLogging();
 
             app.UseEndpoints(endpoints =>
             {
