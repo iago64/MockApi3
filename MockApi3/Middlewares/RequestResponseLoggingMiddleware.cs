@@ -36,6 +36,7 @@ namespace MockApi3.Middlewares
             await context.Request.Body.CopyToAsync(requestStream);
             StringBuilder sb = new StringBuilder();
             sb.Append("{");
+            sb.Append($"\"timestamp\": \"{DateTime.Now}\",");
             sb.Append($"\"host\": \"{context.Request.Host}\",");
             sb.Append($"\"path\": \"{context.Request.Path}\",");
             sb.Append($"\"query_string\": \"{context.Request.QueryString}\",");
@@ -79,6 +80,7 @@ namespace MockApi3.Middlewares
             context.Response.Body.Seek(0, SeekOrigin.Begin);
             StringBuilder sb = new StringBuilder();
             sb.Append("{");
+            sb.Append($"\"timestamp\": \"{DateTime.Now}\",");
             sb.Append($"\"host\": \"{context.Request.Host}\",");
             sb.Append($"\"path\": \"{context.Request.Path}\",");
             sb.Append($"\"query_string\": \"{context.Request.QueryString}\",");
